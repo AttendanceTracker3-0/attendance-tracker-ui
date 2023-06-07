@@ -10,7 +10,7 @@ import { getJobPositions, deleteJobPosition } from 'utils/api/JobPosition';
 import VerificationModal from 'components/verification-modal/VerificationModal';
 import { useTranslation } from 'react-i18next';
 import { AddIcon } from '@chakra-ui/icons';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { CSVLink } from 'react-csv';
 import { FaFileExcel } from 'react-icons/fa';
 import Ts from './test';
@@ -117,6 +117,8 @@ export default function JobPosition() {
     }, []);
     const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
     return (
+    <>
+        <ToastContainer />
         <Box marginTop="80px">
             {role == 1 && (
                 <Button
@@ -179,8 +181,12 @@ export default function JobPosition() {
                         .then(() => {
                             showSuccess(t('job_position:txt_delete_success'));
                         })
-                        .catch(() => {
+                        .catch((err) => {
+                            if (err.response.status === 900) {
+                            showError('Ky Prozicion i Punes eshte ne perdorim');
+                            } else {
                             showError(t('toast_card_notification:text_error'));
+                            }
                         })
                         .finally(() => {
                             setJobPositionIdForDelete(null);
@@ -210,8 +216,7 @@ export default function JobPosition() {
                 }}
                 nullTable={emptyLoading}
             />
-
         </Box>
-
+    </>
     );
 }

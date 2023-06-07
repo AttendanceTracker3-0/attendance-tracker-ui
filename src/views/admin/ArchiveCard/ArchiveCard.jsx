@@ -130,13 +130,12 @@ const ArchiveCard = () => {
             console.log(id, employeeId, statusi, cardRefId, 'bbbbbb');
             const res = await UpdateCardStatusIfEmployeeIsActive(id, employeeId, statusi, cardRefId);
             if (res.status === 200) {
-                showSuccess('');
-            } if (res.status === 2000) {
-                showError('ky puntor o budall');
+                showSuccess('Kartela u aktivisua me sukses');
             }
+            getCardStatusFalse();
         } catch (error) {
             if (error.response.data.status === 2000) {
-                showError('ky puntor o budall');
+                showError('Pronari i Karteles eshte Punotor Pasive');
             } else {
                 showError(t('toast_card_notification:text_error'));
             }
@@ -185,7 +184,6 @@ const ArchiveCard = () => {
                     UpdateCardStatus(jobPositionIdForUpdateStatus, employeeId, status, cardRefId);
                     setJobPositionIdForUpdateStatus();
                     setIsVerificationJobPositionModalOpen(false);
-                    getCardStatusFalse();
                 }}
                 onCancel={() => {
                     setJobPositionIdForUpdateStatus();
