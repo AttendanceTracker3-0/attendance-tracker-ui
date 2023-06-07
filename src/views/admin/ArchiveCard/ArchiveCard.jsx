@@ -32,6 +32,10 @@ const ArchiveCard = () => {
             accessor: 'employee.lastName',
         },
         {
+            Header: t('card:txt_modal_add_reason'),
+            accessor: 'reasonNote',
+        },
+        {
             Header: t('card:txt_tbl_reason'),
             accessor: 'note',
         },
@@ -89,13 +93,13 @@ const ArchiveCard = () => {
         if (!searchValue) setTableDataColumns();
         const filteredCards = cards.filter((card) => {
             const {
-                cardRefId, employee, note
+                cardRefId, employee, reasonNote
             } = card;
             return (
                 employee.firstName.toLowerCase().includes(searchValue.toLowerCase())
                 || employee.lastName.toLowerCase().includes(searchValue.toLowerCase())
                 || cardRefId.toString().includes(searchValue)
-                || note.toLowerCase().includes(searchValue.toLowerCase())
+                || reasonNote.toLowerCase().includes(searchValue.toLowerCase())
             );
         });
         setTableDataColumns(filteredCards);

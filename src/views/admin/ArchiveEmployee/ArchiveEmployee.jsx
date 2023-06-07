@@ -109,7 +109,7 @@ export default function Employee() {
 
         const filteredEmployees = employees.filter((employee) => {
             const {
-                firstName, lastName, personalNumber, birthDate, address, phoneNumber, jobPosition
+                firstName, lastName, personalNumber, birthDate, address, phoneNumber, jobPosition, notes
             } = employee;
             return (
                 firstName.toLowerCase().includes(searchValue.toLowerCase())
@@ -119,6 +119,7 @@ export default function Employee() {
                 || address.toLowerCase().includes(searchValue.toLowerCase())
                 || phoneNumber.toLowerCase().includes(searchValue.toLowerCase())
                 || jobPosition.positionName.toString().toLowerCase().includes(searchValue.toLowerCase())
+                || notes.toLowerCase().includes(searchValue.toLowerCase())
 
             );
         });

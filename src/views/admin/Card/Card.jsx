@@ -40,7 +40,6 @@ export default function Card() {
         },
         {
             Header: t('card:txt_modal_add_automated_reason'),
-
             accessor: 'note',
         },
         {
@@ -102,7 +101,6 @@ export default function Card() {
 
     const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
     const employeeId = JSON.parse(localStorage.getItem('access_employee'));
-    console.log(role, '33223ss');
 
     // Search Cards
     const [cards, setCards] = useState([]);
@@ -115,13 +113,13 @@ export default function Card() {
         if (!searchValue) setTableDataColumns();
         const filteredCards = cards.filter((card) => {
             const {
-                cardRefId, employee, note
+                cardRefId, employee, reasonNote
             } = card;
             return (
                 employee.firstName.toLowerCase().includes(searchValue.toLowerCase())
                 || employee.lastName.toLowerCase().includes(searchValue.toLowerCase())
+                || reasonNote.toLowerCase().includes(searchValue.toLowerCase())
                 || cardRefId.toString().includes(searchValue)
-                || note.toLowerCase().includes(searchValue.toLowerCase())
             );
         });
         setTableDataColumns(filteredCards);
