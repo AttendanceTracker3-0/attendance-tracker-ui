@@ -178,6 +178,8 @@ export default function Employee() {
                     deleteEmployeeManagment(employeeManagmentIdForDelete)
                         .then(() => {
                             showSuccess(t('toast_employee_managment_notification:text_delete_success'));
+                            setTableDataColumns([]);
+                            fetchEmployeeManagment();
                         })
                         .catch(() => {
                             showError(t('toast_employee_managment_notification:text_error'));
@@ -185,7 +187,6 @@ export default function Employee() {
                         .finally(() => {
                             setEmployeeManagmentIdForDelete(null);
                             setIsVerificationModalOpen(false);
-                            fetchEmployeeManagment();
                         });
                 }}
                 onCancel={() => {

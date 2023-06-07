@@ -184,14 +184,19 @@ export default function Managers() {
                     deleteManagers(jobPositionIdForDelete)
                         .then(() => {
                             showSuccess(t('toast_manager_notification:text_delete_success'));
+                            setManagers([]);
+                            fetchManagers();
                         })
-                        .catch(() => {
+                        .catch((error) => {
+                            console.log(error.response.status, 'sss');
+                            if (error.response.status == 900) {
+                             return showError('Ky Menagjer ka Ende Puntore Aktive ne Menaxhim');
+                            }
                             showError(t('toast_manager_notification:text_error'));
                         })
                         .finally(() => {
                             setJobPositionIdForDelete(null);
                             setIsVerificationModalOpen(false);
-                            fetchManagers();
                         });
                 }}
                 onCancel={() => {
