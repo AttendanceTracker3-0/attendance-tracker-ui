@@ -70,6 +70,7 @@ import { getManagersWithStatusActive } from 'utils/api/Manager';
 import { getManagersWithStatusPassive } from 'utils/api/ArchiveManagers';
 import { getChecks } from 'utils/api/Check';
 import { useTranslation } from 'react-i18next';
+// import { getRoleModuleActive } from 'utils/api/Modules';
 // import Sidebar from 'components/sidebar/Sidebar';
 
 const UserReports = () => {
@@ -99,6 +100,19 @@ const UserReports = () => {
     i18n.changeLanguage(language);
   }, [language]);
 
+  const [role, setRole] = useState();
+  const getUserFromLocalStoragee = () => {
+    const item = JSON.parse(localStorage.getItem('access_role'));
+    if (item) {
+      setRole(item[0].roleId);
+    }
+  };
+  useEffect(async () => {
+    await getUserFromLocalStoragee();
+  }, []);
+
+  console.log(role, 'eeeeee');
+
   const [employee, setEmployee] = useState();
   const [employeeActive, setEmployeeActive] = useState();
   const [employeePasive, setEmployeePasive] = useState();
@@ -114,23 +128,31 @@ const UserReports = () => {
 
   const [cardActive, setCardActive] = useState();
   const [cardPassive, setCardPassive] = useState();
-
+  const [cards, setCards] = useState(0);
   const getCards = async () => {
     const cardsActive = await getCardsWithStatusTrue();
     const cardsPassive = await getCardWithStatusFalse();
     setCardActive(cardsActive.data.length);
     setCardPassive(cardsPassive.data.length);
   };
+  useEffect(() => {
+    const totalCards = cardActive + cardPassive;
+    setCards(totalCards);
+  }, [cardActive, cardPassive]);
 
   const [managerActive, setManagerActive] = useState();
   const [managerPassive, setMAnagerPassive] = useState();
-
+  const [managers, setManagers] = useState(0);
   const getManagers = async () => {
     const managersActive = await getManagersWithStatusActive();
     const managersPassive = await getManagersWithStatusPassive();
     setManagerActive(managersActive.data.length);
     setMAnagerPassive(managersPassive.data.length);
   };
+  useEffect(() => {
+    const totalManagers = managerActive + managerPassive;
+    setManagers(totalManagers);
+  }, [managerActive, managerPassive]);
 
   // get Check to table
   const columnsDataColumns = [
@@ -196,7 +218,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_employees')}
-            value={employee}
+            value={role == 1 ? employee : null}
           />
           <MiniStatistics
             startContent={(
@@ -210,7 +232,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_employees_active')}
-            value={employeeActive}
+            value={role == 1 ? employeeActive : null}
           />
           <MiniStatistics
             startContent={(
@@ -224,7 +246,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_employees_pasive')}
-            value={employeePasive}
+            value={role == 1 ? employeePasive : null}
           />
           <MiniStatistics
             startContent={(
@@ -238,7 +260,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_managers')}
-            value={managerActive + managerPassive}
+            value={role == 1 ? managers : null}
           />
           <MiniStatistics
             startContent={(
@@ -252,7 +274,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_managers_active')}
-            value={managerActive}
+            value={role == 1 ? managerActive : null}
           />
           <MiniStatistics
             startContent={(
@@ -266,7 +288,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_managers_pasive')}
-            value={managerPassive}
+            value={role == 1 ? managerPassive : null}
           />
           {/* <MiniStatistics growth="+23%" name="Sales" value="$574.34" /> */}
         </SimpleGrid>
@@ -289,7 +311,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_cards')}
-            value={cardActive + cardPassive}
+            value={role == 1 ? cards : null}
           />
           <MiniStatistics
             startContent={(
@@ -303,7 +325,7 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_cards_active')}
-            value={cardActive}
+            value={role == 1 ? cardActive : null}
           />
           <MiniStatistics
             startContent={(
@@ -317,33 +339,28 @@ const UserReports = () => {
               />
             )}
             name={t('dashboard:text_cards_pasive')}
-            value={cardPassive}
+            value={role == 1 ? cardPassive : null}
           />
 
         </SimpleGrid>
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px" mb="20px">
-          <TotalSpent />
-          <WeeklyRevenue />
-        </SimpleGrid>
-        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
+        {role === 1 ? (
+          <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px" mb="20px">
+            <TotalSpent />
+            <WeeklyRevenue />
+          </SimpleGrid>
+        ) : null}
+        <SimpleGrid columns={role == 1 ? { base: 1, md: 1, xl: 2 } : { base: 1, md: 1, xl: 1 }} gap="20px" mb="20px">
           {checkTable.length > 0 && (
             <ComplexTable
               columnsData={columnsDataColumns}
               tableData={checkTable}
             />
           )}
-          {/* <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px"> */}
-          {/* <DailyTraffic /> */}
-          <PieCard />
-          {/* </SimpleGrid> */}
+          {role == 1 ? (
+            <PieCard />
+          ) : null}
         </SimpleGrid>
-        {/* <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap="20px" mb="20px">
-          <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap="20px">
-            <Tasks />
-            <MiniCalendar h="100%" minW="100%" selectRange={false} />
-          </SimpleGrid>
-        </SimpleGrid> */}
       </Box>
       <Box justifyContent="flex-end">
         <div style={{
