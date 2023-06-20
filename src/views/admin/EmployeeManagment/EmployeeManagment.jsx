@@ -19,6 +19,7 @@ export default function Employee() {
     const [tableDataColumns, setTableDataColumns] = useState([]);
     const [loading, setLoading] = useState(true);
     const { t } = useTranslation();
+    const roles = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
     const columnsDataColumns = [
         {
             Header: t('employee_managment:text_manager_firstname'),
@@ -36,10 +37,12 @@ export default function Employee() {
             Header: t('employee_managment:text_employee_lastname'),
             accessor: 'employee.lastName',
         },
-        {
-            Header: t('employee_managment:text_employee_managment_actions'),
-        },
     ];
+    if (roles === 1) {
+        columnsDataColumns.push({
+            Header: t('employee_managment:text_employee_managment_actions'),
+        });
+    }
     const headers = [
         { label: t('employee_managment:text_manager_firstname'), key: 'manager.employee.firstName' },
         { label: t('employee_managment:text_manager_lastname'), key: 'manager.employee.lastName' },

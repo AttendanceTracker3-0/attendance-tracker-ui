@@ -107,7 +107,7 @@ const DeleteEmployeeModal = ({
                 <form>
                     <Card>
                         <ModalHeader>
-                            {t('update_delete_employee_modal:text_header')}
+                            {t('update_delete_employee_modal:text_header_delete')}
                         </ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>

@@ -112,6 +112,7 @@
   },
   "update_delete_employee_modal": {
     "text_header": "Ndrysho te dhenat",
+    "text_header_delete": "Fshij te dhenat",
     "text_delete_update_firstname": "Emri",
     "text_delete_update_lastname": "Mbiemri",
     "text_delete_update_notes": "Arsyeja pse ky puntor do te behet pasiv",
@@ -273,7 +274,7 @@
   },
   "profile": {
     "text_completed_hours": "Oret Mujore te Kompletuara.",
-    "text_description": "Oret e kompletuara nga muaji i kaluar",
+    "text_description": "Oret e kompletuara nga muaji aktual",
     "text_header_completed": "Oret e Kompletuara",
     "text_header_total": "Oret ne Total"
   },

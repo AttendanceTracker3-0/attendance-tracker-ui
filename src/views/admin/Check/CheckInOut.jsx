@@ -71,7 +71,6 @@ const CheckInOut = () => {
                     const plusHours = diffInHours - 8;
                     return plusHours;
                 }
-
                 return 0;
             }
         }
@@ -152,7 +151,6 @@ const CheckInOut = () => {
     useEffect(() => {
         getDataCheckInOut();
     }, []);
-
     return (
         <Box marginTop="80px">
             <Box width="100%">

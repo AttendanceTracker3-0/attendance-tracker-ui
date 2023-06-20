@@ -30,7 +30,6 @@ export default function Banner() {
 
   const getDataMonthly = async () => {
     const res = await getMonthlyTargetBaseOnEmployeeId(employeeId);
-    console.log(res.data, 'dsadassad');
 
     const getCompletedHours = res.data.map((item) => item.completedHours);
     setCompletedMonthlyHours(getCompletedHours);

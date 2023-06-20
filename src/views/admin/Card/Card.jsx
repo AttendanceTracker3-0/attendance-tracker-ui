@@ -129,7 +129,6 @@ export default function Card() {
             let res;
             if (role == 1) {
                 res = await getCard();
-                console.log(res.data, 'reasdsaada');
             } else {
                 res = await getCardByEmployeeId(employeeId);
             }

@@ -22,5 +22,5 @@ export const getEmployeeChecksTodayByEmployeeId = async (dateTime, employeeId) =
     const config = getConfig();
     const params = { dateTime, employeeId };
     config.params = params;
-    return await axiosConfig.get(`/check/todays-employee-checks-by-employee-id/${employeeId}`, config);
+    return await axiosConfig.get(`/check/employee-checks-by-employee-id/${employeeId}`, config);
 };

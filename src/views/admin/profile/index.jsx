@@ -178,8 +178,8 @@ export default function Overview() {
         )}
         <Storage
           gridArea={{ base: '2 / 1 / 3 / 2', lg: '3 / 2 / 2 / 3' }}
-          used={null}
-          total={null}
+          used={completedWeeklyHours}
+          total={targetWeekly}
 
         />
 

@@ -111,8 +111,6 @@ const UserReports = () => {
     await getUserFromLocalStoragee();
   }, []);
 
-  console.log(role, 'eeeeee');
-
   const [employee, setEmployee] = useState();
   const [employeeActive, setEmployeeActive] = useState();
   const [employeePasive, setEmployeePasive] = useState();
