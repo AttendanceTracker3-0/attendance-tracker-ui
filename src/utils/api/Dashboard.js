@@ -8,4 +8,4 @@ export const getMonthlyTarget = async () => await axiosConfig.get('check/total-t
 
 // Profile
 
-export const getEvideceForEachWeekOfMonth = async () => await axiosConfig.get('check/total-weekly-target-of-hours-monthly');
+export const getEvideceForEachWeekOfMonth = async (employeeId) => await axiosConfig.get(`check/total-weekly-target-of-hours-monthly/${employeeId}`);

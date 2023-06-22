@@ -64,6 +64,10 @@ export default function Overview() {
     {
       Header: t('table_profile:text_Weeks'),
     },
+    {
+      Header: 'Status',
+      accessor: 'status'
+    }
 
   ];
 
@@ -145,7 +149,7 @@ export default function Overview() {
   const [DataWeeksOfMonth, setDataWeeksOfMonth] = useState([]);
 
   const getWeekOfCurrentMonth = async () => {
-    const res = await getEvideceForEachWeekOfMonth();
+    const res = await getEvideceForEachWeekOfMonth(employeeId);
     setDataWeeksOfMonth(res.data);
   };
   useEffect(() => {

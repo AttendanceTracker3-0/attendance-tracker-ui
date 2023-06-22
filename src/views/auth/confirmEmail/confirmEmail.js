@@ -97,8 +97,9 @@ const ConfirmEmail = () => {
             if (err.response.data.status === 713) {
                 showError(t('new_password:error_proccess_failed'));
                 setPasswordConfirm(false);
+             } else {
+                showError(t('new_password:error_link_is_not_valide'));
             }
-            showError(t('new_password:error_link_is_not_valide'));
             setPasswordConfirm(false);
             console.log(err);
         }

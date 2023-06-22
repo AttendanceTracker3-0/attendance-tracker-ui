@@ -30,6 +30,9 @@ import { ThreeDots } from 'react-loader-spinner';
 
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from 'react-icons/md';
+import {
+    CheckCircleIcon, SmallCloseIcon
+} from '@chakra-ui/icons';
 
 const RemarksTableData = ({
     columnsData, tableData, nullTable, loading,
@@ -237,6 +240,41 @@ const RemarksTableData = ({
                                                 >
                                                     {`${t('table_profile:text_Weeks')}    ${i++}`}
                                                 </Text>
+                                            );
+                                        } else if (
+                                            cell.column.Header === 'Status'
+                                        ) {
+                                            data = (
+                                                <Flex align="center">
+                                                    <Text
+                                                        color={textColor}
+                                                        fontSize="sm"
+                                                        fontWeight="700"
+                                                    >
+                                                        {cell.value == true
+                                                            // ? t(
+                                                            //     'employee:text_header_status_active_result'
+                                                            // )
+                                                            ? (
+                                                                <CheckCircleIcon
+                                                                    marginLeft="50%"
+                                                                    color="green"
+                                                                    fontSize="180%"
+                                                                />
+                                                            )
+                                                            : (
+                                                                <Box>
+                                                                    <SmallCloseIcon
+                                                                        borderRadius="50%"
+                                                                        marginLeft="50%"
+                                                                        backgroundColor="red"
+                                                                        color="white"
+                                                                        fontSize="180%"
+                                                                    />
+                                                                </Box>
+                                                            )}
+                                                    </Text>
+                                                </Flex>
                                             );
                                         } else {
                                             data = (
