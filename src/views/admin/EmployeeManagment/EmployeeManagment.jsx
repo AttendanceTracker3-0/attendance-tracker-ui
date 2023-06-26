@@ -38,7 +38,7 @@ export default function Employee() {
             accessor: 'employee.lastName',
         },
     ];
-    if (roles === 1) {
+    if (roles == 1) {
         columnsDataColumns.push({
             Header: t('employee_managment:text_employee_managment_actions'),
         });

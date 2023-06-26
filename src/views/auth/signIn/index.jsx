@@ -1,7 +1,7 @@
 import React, {
   useContext, useEffect,
 } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 // Chakra imports
 import {
   Box,
@@ -20,11 +20,11 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 // Custom components
-import { HSeparator } from 'components/separator/Separator';
+// import { HSeparator } from 'components/separator/Separator';
 import DefaultAuth from 'layouts/auth/Default';
 // Assets
 import illustration from 'assets/img/auth/auth.png';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { RiEyeCloseLine } from 'react-icons/ri';
 import { AuthContext } from 'contexts/auth/auth.context';
@@ -39,19 +39,19 @@ function SignIn() {
   // Chakra color mode
   const textColor = useColorModeValue('navy.700', 'white');
   const textColorSecondary = 'gray.400';
-  const textColorDetails = useColorModeValue('navy.700', 'secondaryGray.600');
+  // const textColorDetails = useColorModeValue('navy.700', 'secondaryGray.600');
   const textColorBrand = useColorModeValue('brand.500', 'white');
   const brandStars = useColorModeValue('brand.500', 'brand.400');
-  const googleBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.200');
-  const googleText = useColorModeValue('navy.700', 'white');
-  const googleHover = useColorModeValue(
-    { bg: 'gray.200' },
-    { bg: 'whiteAlpha.300' }
-  );
-  const googleActive = useColorModeValue(
-    { bg: 'secondaryGray.300' },
-    { bg: 'whiteAlpha.200' }
-  );
+  // const googleBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.200');
+  // const googleText = useColorModeValue('navy.700', 'white');
+  // const googleHover = useColorModeValue(
+  //   { bg: 'gray.200' },
+  //   { bg: 'whiteAlpha.300' }
+  // );
+  // const googleActive = useColorModeValue(
+  //   { bg: 'secondaryGray.300' },
+  //   { bg: 'whiteAlpha.200' }
+  // );
   const history = useHistory();
   const { authDispatch } = useContext(AuthContext);
   const [show, setShow] = React.useState(false);
@@ -179,7 +179,7 @@ function SignIn() {
         justifyContent="center"
         mb={{ base: '30px', md: '60px' }}
         px={{ base: '25px', md: '0px' }}
-        mt={{ base: '40px', md: '14vh' }}
+        mt={{ lg: '190px', md: '14vh' }}
         flexDirection="column"
       >
         <Box me="auto">
@@ -207,7 +207,7 @@ function SignIn() {
           me="auto"
           mb={{ base: '20px', md: 'auto' }}
         >
-          <Button
+          {/* <Button
             fontSize="sm"
             me="0px"
             mb="26px"
@@ -229,8 +229,8 @@ function SignIn() {
             <Text color="gray.400" mx="14px">
               or
             </Text>
-            <HSeparator />
-          </Flex>
+            <HSeparator/>
+          </Flex> */}
           <FormControl>
             <FormLabel
               display="flex"
@@ -335,7 +335,7 @@ function SignIn() {
             maxW="100%"
             mt="0px"
           >
-            <Text color={textColorDetails} fontWeight="400" fontSize="14px">
+            {/* <Text color={textColorDetails} fontWeight="400" fontSize="14px">
               Not registered yet?
               <NavLink to="/auth/sign-up">
                 <Text
@@ -347,7 +347,7 @@ function SignIn() {
                   Create an Account
                 </Text>
               </NavLink>
-            </Text>
+            </Text> */}
           </Flex>
           <ResetPasswordByEmail
             isOpen={openResetPasswordByEmailModal}

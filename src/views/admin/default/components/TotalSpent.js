@@ -281,7 +281,7 @@ const TotalSpent = (props) => {
             </Text>
           </Flex>
         </Flex>
-        <Box minH="260px" minW="75%" mt="auto">
+        <Box minH="260px" minW="75%" ml={{ lg: '-35px', md: '0px' }} mt="auto">
           {target.length > 0 && completedHours.length > 0 && days.length > 0
             && (
               <LineChart

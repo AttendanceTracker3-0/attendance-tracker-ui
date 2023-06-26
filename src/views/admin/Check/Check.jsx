@@ -19,7 +19,6 @@ import React, { useState, useEffect } from 'react';
 import {
     getChecks, addCheck, getChecksByEmployeeId, getEmployeeChecksByEmployeeId
 } from 'utils/api/Check';
-import { getCardsWithStatusTrue } from 'utils/api/Card';
 import ColumnsTable from 'views/admin/dataTables/components/ColumnsTable';
 import { toast, ToastContainer } from 'react-toastify';
 import moment from 'moment/moment';
@@ -27,6 +26,7 @@ import { useTranslation } from 'react-i18next';
 import { AddIcon } from '@chakra-ui/icons';
 import { CSVLink } from 'react-csv';
 import { FaFileExcel } from 'react-icons/fa';
+import { getCard } from 'utils/api/Card';
 
 export default function check() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -203,8 +203,9 @@ export default function check() {
 
     const fetchEmployee = async () => {
         try {
-            const res = await getCardsWithStatusTrue();
+            const res = await getCard();
             const result = res.data;
+            console.log(res.data, 'sssss');
             setTableEmployee(result);
         } catch (err) {
             showError(t('toast_card_notification:text_error'));
@@ -307,9 +308,9 @@ export default function check() {
                                     <Select value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder={t('checks:txt_modal_employee')}>
                                         {tableEmployee && tableEmployee.length && tableEmployee.map((data) => (
                                             <option value={data.id}>
-                                                {data.firstName}
+                                                {data.employee.firstName}
                                                 {' '}
-                                                {data.lastName}
+                                                {data.employee.lastName}
                                             </option>
                                         ))}
                                     </Select>

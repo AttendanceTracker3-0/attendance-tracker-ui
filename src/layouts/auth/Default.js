@@ -1,19 +1,16 @@
 // Chakra imports
 import {
   Flex,
-  Icon,
-  Text,
   Box
-
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Footer from 'components/footer/FooterAuth';
+// import Footer from 'components/footer/FooterAuth';
 import FixedPlugin from 'components/fixedPlugin/FixedPlugin';
 // // Custom components
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // // Assets
-import { FaChevronLeft } from 'react-icons/fa';
+// import { FaChevronLeft } from 'react-icons/fa';
 
 function AuthIllustration(props) {
   const { children, illustrationBackground } = props;
@@ -33,38 +30,21 @@ function AuthIllustration(props) {
         px={{ lg: '100px', xl: '0px' }}
         ps={{ xl: '70px' }}
         justifyContent="center"
+        ml={{ lg: '-220px', md: '220px' }}
       >
-        <NavLink
+        {/* <NavLink
           to="/admin"
           style={() => ({
             width: 'fit-content',
             marginTop: '40px',
           })}
-        >
-          <Flex
-            align="center"
-            ps={{ base: '25px', lg: '0px' }}
-            pt={{ lg: '0px', xl: '0px' }}
-            w="fit-content"
-          >
-            <Icon
-              as={FaChevronLeft}
-              me="12px"
-              h="13px"
-              w="8px"
-              color="secondaryGray.600"
-            />
-            <Text ms="0px" fontSize="sm" color="secondaryGray.600">
-              Back to Simmmple
-            </Text>
-          </Flex>
-        </NavLink>
+        /> */}
         {children}
         <Box
           display={{ base: 'none', md: 'block' }}
           h="100%"
           minH="100vh"
-          w={{ lg: '50vw', '2xl': '44vw' }}
+          w={{ lg: '45vw', '2xl': '44vw' }}
           position="absolute"
           right="0px"
         >
@@ -80,7 +60,7 @@ function AuthIllustration(props) {
             borderBottomLeftRadius={{ lg: '120px', xl: '200px' }}
           />
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </Flex>
       <FixedPlugin />
     </Flex>
