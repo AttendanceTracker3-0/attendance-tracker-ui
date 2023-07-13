@@ -62,19 +62,6 @@ export default function ColumnsTable(props) {
 
     const [language, setLanguage] = useState(localStorage.getItem('language') || 'al');
 
-    function toggleLanguage() {
-        if (language === 'al') {
-            setLanguage('en');
-            i18n.changeLanguage('en');
-        } else if (language === 'en') {
-            setLanguage('ch');
-            i18n.changeLanguage('ch');
-        } else {
-            setLanguage('al');
-            i18n.changeLanguage('al');
-        }
-    }
-
     useEffect(() => {
         localStorage.setItem('language', language);
         i18n.changeLanguage(language);
@@ -620,10 +607,9 @@ export default function ColumnsTable(props) {
                 }}
                 >
                     <Flex>
-                        <Select value={language} onChange={(e) => toggleLanguage(e.target.value)}>
+                        <Select value={language} onChange={(e) => setLanguage(e.target.value)}>
                             <option value="al">AL</option>
                             <option value="en">EN</option>
-                            <option value="ch">CH</option>
                         </Select>
                     </Flex>
                 </div>
