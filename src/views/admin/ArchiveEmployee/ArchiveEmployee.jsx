@@ -39,6 +39,10 @@ export default function Employee() {
             accessor: 'address',
         },
         {
+            Header: t('employee:text_header_employee_email'),
+            accessor: 'email',
+        },
+        {
             Header: t('archive_employee:text_header_employee_phonenumber'),
             accessor: 'phoneNumber',
         },

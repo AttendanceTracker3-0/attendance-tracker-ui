@@ -33,6 +33,7 @@ const UpdateEmployeeModal = ({
     const [birthDate, setBirthDate] = useState(null);
     const [personalNumber, setPersonalNumber] = useState('');
     const [address, setAddress] = useState('');
+    const [newEmail, setNewEmail] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [positionId, setPositionId] = useState('');
@@ -83,6 +84,7 @@ const UpdateEmployeeModal = ({
         setPersonalNumber(selectedEmployee.personalNumber);
         setAddress(selectedEmployee.address);
         setEmail(selectedEmployee.email);
+        setNewEmail(selectedEmployee.email);
         setPhoneNumber(selectedEmployee.phoneNumber);
         setPositionId(selectedEmployee.positionId);
         setStatus(selectedEmployee.status);
@@ -96,6 +98,7 @@ const UpdateEmployeeModal = ({
             personalNumber,
             address,
             email,
+            newEmail,
             phoneNumber,
             positionId,
             status,
@@ -176,8 +179,8 @@ const UpdateEmployeeModal = ({
                                         </FormLabel>
                                         <Input
                                             type="text"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
+                                            value={newEmail}
+                                            onChange={(e) => setNewEmail(e.target.value)}
                                         />
                                         <FormLabel htmlFor="invoicers" marginTop="10px">
                                             {t('update_employee_modal:text_update_phonenumber')}

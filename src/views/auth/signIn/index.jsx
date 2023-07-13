@@ -136,13 +136,15 @@ function SignIn() {
   const email = params.get('confirmEmail');
   const passwordToken = params.get('resetPassword');
 
+  /* eslint-disable */
   const handleConfirmation = async () => {
     console.log(token, email, passwordToken, 'fdghjs');
     if (!email || !token) return;
-    console.log('here', token);
     try {
       await confirmEmailLink(encodeURIComponent(token), email);
-      showSuccess(t('confirm_email:text_success'));
+      if (passwordToken == "skip") {
+      return showSuccess(t('confirm_email:text_success'));
+      }
       setOpenSetPasswordModal(true);
       return (
         <Center bg="green.400" h="100px" color="white" />

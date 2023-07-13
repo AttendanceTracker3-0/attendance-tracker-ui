@@ -15,7 +15,7 @@ import { IoCheckmarkCircle } from 'react-icons/io5';
 // import { MdBarChart, MdOutlineCalendarToday } from 'react-icons/md';
 // Assets
 import { RiArrowUpSFill } from 'react-icons/ri';
-import { getWeeklyTarger } from 'utils/api/Dashboard';
+import { getWeeklyTarger, getWeeklyTargerByManager, getWeeklyStatisticForAnEmployee } from 'utils/api/Dashboard';
 import { useTranslation } from 'react-i18next';
 // import {
 //   lineChartOptionsTotalSpent,
@@ -46,15 +46,23 @@ const TotalSpent = (props) => {
   const [completedHours, setCompletedHours] = useState([]);
   const [days, setDays] = useState([]);
 
+  const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
+  const managerId = JSON.parse(localStorage.getItem('access_employee'));
+
   const getWeeklyTargetOfHours = async () => {
-    const res = await getWeeklyTarger();
-    console.log(res.data, 'adadasasa');
-    const getTarget = res.data.map((item) => item.targetHourse);
-    setTarget(getTarget);
-    const getCompletedHours = res.data.map((item) => item.completedHourse);
-    setCompletedHours(getCompletedHours);
-    const getDays = res.data.map((item) => item.dayOfWeeks);
-    setDays(getDays);
+    try {
+      const res = role == 1 ? await getWeeklyTarger() : role == 2 ? await getWeeklyTargerByManager(managerId) : await getWeeklyStatisticForAnEmployee(managerId);
+      const data = res.data || [];
+      const getTarget = data.map((item) => item.targetHourse);
+      const getCompletedHours = data.map((item) => item.completedHourse);
+      const getDays = data.map((item) => item.dayOfWeeks);
+      console.log(res.data, 'ssss');
+      setTarget(getTarget);
+      setCompletedHours(getCompletedHours);
+      setDays(getDays);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

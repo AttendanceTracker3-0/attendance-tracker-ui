@@ -39,6 +39,9 @@ export default function check() {
     const [tableDataColumns, setTableDataColumns] = useState([]);
     const [tableEmployee, setTableEmployee] = useState([]);
 
+    const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
+    const cardsByEmployeeId = JSON.parse(localStorage.getItem('access_employee'));
+
     // translation
 
     const { t } = useTranslation();
@@ -177,22 +180,12 @@ export default function check() {
 
     const [emptyLoading, setEmptyLoading] = useState('');
     const fetchChecks = async () => {
-        const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
-        const cardsByEmployeeId = JSON.parse(localStorage.getItem('access_employee'));
-
         try {
-            let res;
-            if (role == 1) {
-                res = await getChecks();
-            } else if (role == 2) {
-                res = await getChecksByEmployeeId(cardsByEmployeeId);
-            } else {
-                res = await getEmployeeChecksByEmployeeId(cardsByEmployeeId);
-            }
-
-            if (res.data.length) {
+            const res = role == 1 ? await getChecks() : role == 2 ? await getChecksByEmployeeId(cardsByEmployeeId) : await getEmployeeChecksByEmployeeId(cardsByEmployeeId);
+            const data = res.data || [];
+            if (data.length) {
                 setEmptyLoading('');
-                setChecks(res.data);
+                setChecks(data);
             } else {
                 setEmptyLoading('Nuk Egziston asnje Evidentim!');
             }
@@ -246,7 +239,6 @@ export default function check() {
                 fetchChecks();
             });
     };
-    const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
     return (
         <Box marginTop="80px">
             {role == 1 && (
@@ -270,7 +262,6 @@ export default function check() {
                 leftIcon={<FaFileExcel />}
                 variant="brand"
                 marginBottom="20px"
-                // background="#217346" Excel Color
                 background="teal"
                 color="white"
                 float="right"
@@ -307,7 +298,7 @@ export default function check() {
                                     </FormLabel>
                                     <Select value={employeeId} onChange={(e) => setEmployeeId(e.target.value)} placeholder={t('checks:txt_modal_employee')}>
                                         {tableEmployee && tableEmployee.length && tableEmployee.map((data) => (
-                                            <option value={data.id}>
+                                            <option value={data.employeeId}>
                                                 {data.employee.firstName}
                                                 {' '}
                                                 {data.employee.lastName}

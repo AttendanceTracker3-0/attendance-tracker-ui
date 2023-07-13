@@ -16,7 +16,7 @@ import React, { useEffect, useState } from 'react';
 //   barChartOptionsConsumption,
 // } from 'variables/charts';
 // import { MdBarChart } from 'react-icons/md';
-import { getWeeklyStatistics } from 'utils/api/Dashboard';
+import { getWeeklyStatistics, getWeeklyStatisticsByManager } from 'utils/api/Dashboard';
 import { useTranslation } from 'react-i18next';
 // import { getWeeklyStatistics } from 'utils/api/Dashboard';
 
@@ -42,15 +42,24 @@ export default function WeeklyRevenue(props) {
   const [passiveEmployee2, setPassiveEmployee] = useState([]);
   const [weeks, setWeeks] = useState([]);
 
+  const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
+  const managerId = JSON.parse(localStorage.getItem('access_employee'));
+
   const getEmployees2 = async () => {
-    const res = await getWeeklyStatistics();
-    const activeEmployee = res.data.map((item) => item.activeEmployee);
-    setEmployees(activeEmployee);
-    const passiveEmployee = res.data.map((item) => item.passiveEmployee);
-    setPassiveEmployee(passiveEmployee);
-    const weekly = res.data.map((item) => item.dayOfWeeks);
-    setWeeks(weekly);
+    try {
+      const res = role == 1 ? await getWeeklyStatistics() : role == 2 ? await getWeeklyStatisticsByManager(managerId) : null;
+      const data = res.data || [];
+      const activeEmployee = data.map((item) => item.activeEmployee);
+      const passiveEmployee = data.map((item) => item.passiveEmployee);
+      const weekly = data.map((item) => item.dayOfWeeks);
+      setEmployees(activeEmployee);
+      setPassiveEmployee(passiveEmployee);
+      setWeeks(weekly);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   useEffect(async () => {
     getEmployees2();
   }, []);

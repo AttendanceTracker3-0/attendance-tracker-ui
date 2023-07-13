@@ -8,9 +8,9 @@ import PieChart from 'components/charts/PieChart';
 // import { pieChartOptions } from 'variables/charts';
 import { VSeparator } from 'components/separator/Separator';
 import React, { useEffect, useState } from 'react';
-import { getMonthlyTarget } from 'utils/api/Dashboard';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
+import { getMonthlyStaisticForAnEmployee, getMonthlyTarget } from 'utils/api/Dashboard';
 
 export default function Conversion(props) {
   const { ...rest } = props;
@@ -65,28 +65,48 @@ export default function Conversion(props) {
     },
   };
 
+  const role = JSON.parse(localStorage.getItem('access_role'))[0].roleId;
+  const employeeId = JSON.parse(localStorage.getItem('access_employee'));
+
   const [monthlyHours, setMonthlyHours] = useState([]);
   const [totalHours, setTotalHours] = useState();
   const [calculatedHours, setCalculatedHours] = useState();
+  const [remainingHours, setRemainingHours] = useState();
   const [date, setDate] = useState();
 
   const getMonthlyStatistics = async () => {
-    const res = await getMonthlyTarget();
-    setMonthlyHours(res.data);
-    const getTotalHours = res.data.map((item) => item.totalMonthlyHourse);
-    setTotalHours(getTotalHours[0]);
-    const getCalculatedHours = res.data.map((item) => item.totalCompletedHourse);
-    setCalculatedHours(getCalculatedHours[0]);
-    const getData = res.data.map((item) => item.dayOfMonth);
-    setDate(getData[0]);
+    try {
+    const res = role == 1 ? await getMonthlyTarget() : role == 3 ? await getMonthlyStaisticForAnEmployee(employeeId) : null;
+
+      const data = res.data || [];
+      setMonthlyHours(data);
+
+      const getTotalHours = data.map((item) => item.totalMonthlyHourse);
+      setTotalHours(getTotalHours[0]);
+
+      const getCalculatedHours = data.map((item) => item.totalCompletedHourse);
+      setCalculatedHours(getCalculatedHours[0]);
+
+      const getData = data.map((item) => item.dayOfMonth);
+      setDate(getData[0]);
+
+      const getRemainingHours = data.map((item) => item.remainingHours);
+      const decimalPart = getRemainingHours[0] % 1;
+
+      if (decimalPart.toFixed(1) === '0.6') {
+        setRemainingHours(getRemainingHours[0] + 0.4);
+      }
+      setRemainingHours(getRemainingHours[0]);
+    } catch (error) {
+      console.log(error, 'error from back');
+    }
   };
 
   useEffect(() => {
     getMonthlyStatistics();
   }, []);
   console.log(date);
-  const data = [calculatedHours, totalHours - calculatedHours];
-  console.log(data, 'dasdass');
+  const data = [calculatedHours, remainingHours];
 
   return (
     <Card p="20px" align="center" direction="column" w="100%" {...rest}>
@@ -124,7 +144,7 @@ export default function Conversion(props) {
         </Text>
       </Flex>
 
-      {monthlyHours.length > 0 && totalHours != null && calculatedHours != null && (
+      {monthlyHours.length > 0 && totalHours != null && calculatedHours != null && remainingHours != null && (
         <PieChart
           h="100%"
           w="100%"

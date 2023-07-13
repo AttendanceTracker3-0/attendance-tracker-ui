@@ -56,7 +56,6 @@ const ConfirmEmail = () => {
         const params = new URLSearchParams(window.location.hash.split('?')[1]);
         const token = params.get('token');
         const email = params.get('email');
-        console.log(email, ' . token: ', token, 'dddd');
         if (!newPassword && !replayPassword) {
             showError(t('new_password:error_fill_all_inputs'));
             setPasswordConfirm(false);

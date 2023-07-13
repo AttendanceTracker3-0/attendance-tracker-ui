@@ -47,7 +47,6 @@ export default function Employee() {
         {
 
             Header: t('employee:text_header_employee_email'),
-
             accessor: 'email',
         },
         {

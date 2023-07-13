@@ -42,39 +42,12 @@ const CheckInOut = () => {
         },
         {
             Header: t('check_in_out:txt_tbl_last_check_total_hours'),
-            accessor: ({ firstDateTime, lastDateTime }) => {
-                const checkIn = new Date(firstDateTime);
-                const checkOut = new Date(lastDateTime);
-
-                const diffInHours = (checkOut.getTime() - checkIn.getTime()) / 36e5;
-                if (diffInHours > 8) {
-                    const totalHours = diffInHours - 8;
-                    const workHours = diffInHours - totalHours;
-                    return workHours;
-                }
-                if (diffInHours < 0) {
-                    const workHours = 0;
-                    return workHours;
-                }
-                return diffInHours;
-            }
+            accessor: 'completedWeekHours'
         },
         {
             Header: t('check_in_out:txt_tbl_last_check_extra_hours'),
-            accessor: ({ firstDateTime, lastDateTime }) => {
-                const checkIn = new Date(firstDateTime);
-                const checkOut = new Date(lastDateTime);
-
-                const diffInHours = (checkOut.getTime() - checkIn.getTime()) / 36e5;
-
-                if (diffInHours > 8) {
-                    const plusHours = diffInHours - 8;
-                    return plusHours;
-                }
-                return 0;
-            }
+            accessor: 'totalWeekHours'
         }
-
     ];
     const headers = [
         { label: t('check_in_out:txt_tbl_card'), key: 'cardNumber' },
