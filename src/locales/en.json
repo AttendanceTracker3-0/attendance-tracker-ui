@@ -25,7 +25,11 @@
     "txt_modal_add_text_placeholder": "Profession Name",
     "txt_modal_error": "Please, enter Profession",
     "txt_update_modal_title": "Update Profession",
-    "txt_update_modal_name_job_position": "Profession"
+    "txt_update_modal_name_job_position": "Profession",
+    "txt_delete_success": "The position was deleted successfully",
+    "txt_add_success": "The position was added successfully",
+    "txt_update_success": "The position was updated successfully",
+    "txt_add_button": "Add Job Position"
   },
   "checks": {
     "txt_btn_add": "Add Checks Manually",
@@ -40,7 +44,14 @@
     "txt_tbl_serverDateTime": "Real Enter Time",
     "txt_tbl_admin_firstname": "Admins First Name",
     "txt_tbl_admin_lastname": "Admins Last Name",
-    "txt_tbl_reason": "Notes"
+    "txt_tbl_reason": "Notes",
+    "text_field_select_date_when_employee_started_work": "Choose the Start Date of Employment",
+    "text_field_select_employee": "Select the Employee",
+    "text_field_write_admins_name_who_inserted_the_check": "Check the admin who has inserted this evidence",
+    "text_field_reason_of_check_in_manually": "Please explain the reason for the manual check-in",
+    "text_field_minimum_character": "The minimum number of characters is 15 in the 'Notes' section",
+    "text_add_check_successfuly": "Evidence added successfully!",
+    "text_add_check_error": "Evidence was not added!"
   },
   "check_in_out": {
     "txt_tbl_firstname": "First Name",
@@ -65,7 +76,8 @@
     "txt_update_modal_title": "Update Card",
     "txt_modal_is_active": "Is Active",
     "txt_activation_card": "Activate Card",
-    "txt_add_button_card": "Add Card"
+    "txt_add_button_card": "Add Card",
+    "txt_loading_error": "The card does not exist"
   },
   "table_headers": {
     "buttons_update_delete": "Actions"
@@ -81,7 +93,10 @@
     "text_add_employee_phonenumber": "Enter Employee Phone Number",
     "text_add_employee_jobposition": "Select Job Position",
     "text_add_employee_status": "Is Active",
-    "text_add_employee_add_button": "Add"
+    "text_add_employee_add_button": "Add",
+    "text_add_field": "Please fill in all the fields",
+    "text_employee_not_added": "The employee was not inserted",
+    "text_employee_select_role": "Select the role"
   },
   "update_employee_modal": {
     "text_header": "Update the Data",
@@ -94,6 +109,16 @@
     "text_update_phonenumber": "Update Phone Number",
     "text_update_jobposition": "Update Job Position",
     "text_save_button": "Save"
+  },
+  "update_delete_employee_modal": {
+    "text_header": "Change the data",
+    "text_header_delete": "Delete the data",
+    "text_delete_update_firstname": "First Name",
+    "text_delete_update_lastname": "Last Name",
+    "text_delete_update_notes": "The reason why this employee will become inactive",
+    "text_save_button": "Save",
+    "text_update_employee_success": "The data was successfully changed",
+    "text_update_employee_error": "Contact the admin about this issue"
   },
   "employee": {
     "text_button_add_employee": "Add Employee",
@@ -109,13 +134,17 @@
     "text_header_employee_search": "Search",
     "text_header_button_delete": "Delete",
     "text_header_status_active_result": "Active",
-    "text_header_status_passive_result": "Passive"
+    "text_header_status_passive_result": "Passive",
+    "text_header_email": "Email",
+    "text_email_is_not_valid": "Kjo Email nuk eshte Valide",
+    "text_personal_number": "Ju lutem Vendosni vetem Numra"
   },
   "add_manager_modal": {
     "text_add_manager_header": "Add Managers",
     "text_add_manager_select_employee": "Select Employee",
     "text_add_manager_status": "Is Active",
-    "text_add_manager_add_button": "Add"
+    "text_add_manager_add_button": "Add",
+    "text_add_manager_field_errorr": "Please fill in all the fields"
   },
   "manager": {
     "text_button_add_manager": "Add Manager",
@@ -125,13 +154,8 @@
     "text_header_manager_search": "Search",
     "text_header_button_delete": "Delete",
     "text_header_status_active_result": "Active",
-    "text_header_status_passive_result": "Passive"
-  },
-  "employee_managment_modal": {
-    "text_add_employee_managment_header": "Manage Employees",
-    "text_add_employee_managment_select_manager": "Select Manager",
-    "text_add_employee_managment_select_employee": "Select Employee",
-    "text_add_employee_managment_button_add": "Add"
+    "text_header_status_passive_result": "Passive",
+    "text_add_button": "Add Manager"
   },
   "employee_managment": {
     "text_employee_managment_button_header": "Add Employee Managment",
@@ -140,8 +164,18 @@
     "text_employee_firstname": "Employee First Name",
     "text_employee_lastname": "Employee Last Name",
     "text_employee_managment_actions": "Actions",
+    "text_employee_managment_options": "Options",
     "text_employee_managment_update": "Update",
-    "text_employee_managment_delete": "Delete"
+    "text_employee_managment_delete": "Delete",
+    "text_add_button": "Add Management"
+  },
+  "employee_managment_modal": {
+    "text_add_employee_managment_header": "Manage Employees",
+    "text_add_employee_managment_select_manager": "Select Manager",
+    "text_add_employee_managment_select_employee": "Select Employee",
+    "text_add_employee_managment_button_add": "Add",
+    "text_add_employee_managment_success": "Management was added successfully",
+    "text_update_employee_managment_success": "Update was successful"
   },
   "employee_managment_update": {
     "text_employee_managment_update_button_header": "Update Employee Managment",
@@ -172,13 +206,15 @@
     "text_employee_update_phonenumber": " Update Phone Number",
     "text_employee_update_jobposition": "Update Job Positon",
     "text_employee_update_status": "Is Active",
-    "text_employee_update_save_button": "Save"
+    "text_employee_update_save_button": "Save",
+    "text_employee_update_check_manager_if_its_active": "Check if the employee is a manager"
   },
   "archive_manager": {
     "text_header_manager_firstname": "First Name",
     "text_header_manager_lastname": "Last Name",
     "text_header_manager_status": "Status",
-    "text_header_button_update": "Update"
+    "text_header_button_update": "Update",
+    "text_header_activate_manager": "Activate Manager"
   },
   "archive_manager_update_modal": {
     "text_manager_update_header": "Update the Data",
@@ -186,17 +222,24 @@
     "text_manager_update_lastname": "Update Last Name",
     "text_manager_update_status": "Is Active",
     "text_manager_update_save_button": "Save",
-    "text_manager_button_name": "Activate Manager"
+    "text_manager_button_name": "Activate Manager",
+    "text_manager_error": "This manager is no longer an active employee"
   },
   "verification_modal": {
     "text_header_verification": "Are you sure?",
     "text_verification_yes_option": "Yes",
-    "text_verification_no_option": "No"
+    "text_verification_no_option": "No",
+    "text_manager_error_verification": "The manager is still an active employee"
   },
   "toast_card_notification": {
     "text_add_success": "Card added successfully.",
     "text_delete_success": "Card deleted successfully.",
-    "text_error": "Contact administration for this problem!"
+    "text_error": "Contact administration for this problem!",
+    "text_error_field_add_card": "Please enter the reference number of the card",
+    "text_error_field_add_employee": "Select the employee",
+    "text_error_card_not_inserted": "The card was not inserted",
+    "text_updated_card_success": "The card was successfully updated",
+    "text_updaated_card_error": "The card was not updated"
   },
   "toast_employee_notification": {
     "text_add_success": "Employee added successfully.",
@@ -206,12 +249,24 @@
   "toast_manager_notification": {
     "text_add_success": "Manager added successfully.",
     "text_delete_success": "Manager deleted successfully.",
-    "text_error": "Contact administration for this problem!"
+    "text_error": "Contact administration for this problem!",
+    "text_update_success": "The manager was successfully activated"
   },
   "toast_employee_managment_notification": {
-    "text_add_success": "Employee Managment added successfully.",
-    "text_delete_success": "Employee Managment deleted successfully.",
-    "text_error": "Contact administration for this problem!"
+    "text_add_success": "Employee Managment added successfully",
+    "text_delete_success": "Employee Managment deleted successfully",
+    "text_error": "Contact administration for this issue!"
+  },
+  "card_archive": {
+    "text_activate_successfuly": "The card was successfully activated",
+    "text_activate_error": "The card was not activated"
+  },
+  "delete_emplyee_with_user": {
+    "text_success_delete": "The employee was successfully deleted",
+    "text_error_delete": "Check if this employee is still a manager"
+  },
+  "archive_card": {
+    "text_loading_error": "There is no inactive card!"
   },
   "role": {
     "text_role_approach": "Role Access to Modules",
@@ -224,60 +279,60 @@
     "text_header_total": "Total Hours"
   },
   "dashboard": {
-    "text_employees": "Puntoret",
-    "text_employees_active": "Puntoret Aktive",
-    "text_employees_pasive": "Puntoret Pasive",
-    "text_managers": "Menaxheret",
-    "text_managers_active": "Menaxheret Aktive",
-    "text_managers_pasive": "Menaxheret Pasive",
-    "text_cards": "Kartelat",
-    "text_cards_active": "Kartelat Aktive",
-    "text_cards_pasive": "Kartelat Pasive",
-    "text_weekly_hours_target": "Targeti Javore",
-    "text_target_day": "Targeti Ditore",
-    "text_done_hours_day": "Oret e Kompleuara",
-    "text_total_precentage": "Totali ne %",
-    "text_employees_weekly": "Evidentimi i Puntoreve ne Interval 1 - Javore",
-    "text_monthly_target": "Targeti Mujore",
-    "text_done_hours_monthly": "Oret e Realizuara",
-    "text_table_check_employees": "Evidentimet e Fundit"
+    "text_employees": "Employees",
+    "text_employees_active": "Active Employees",
+    "text_employees_pasive": "Inactive Employees",
+    "text_managers": "Managers",
+    "text_managers_active": "Active Managers",
+    "text_managers_pasive": "Inactive Managers",
+    "text_cards": "Cards",
+    "text_cards_active": "Active Cards",
+    "text_cards_pasive": "Inactive Cards",
+    "text_weekly_hours_target": "The Weekly Target",
+    "text_target_day": "The Daily Target",
+    "text_done_hours_day": "Completed Hours",
+    "text_total_precentage": "Total in %",
+    "text_employees_weekly": "Evidence of Employees on a Weekly Interval",
+    "text_monthly_target": "The Monthly Target",
+    "text_done_hours_monthly": "Realized Hours",
+    "text_table_check_employees": "The Latest Evidences"
   },
   "excel": {
-    "button_export_data": "Eksporto ne Excel"
+    "button_export_data": "Export in Excel"
   },
   "remarks": {
-    "text_remarks": "Verejtje",
-    "text_add_remarks_header": "Shto Verejtje",
-    "text_full_name_employee": "Emri dhe Mbiemri",
-    "text_remarks_placeholder": "Shkruaj nje Verejtje...",
-    "success_inserted_remarks": "Verejtja u insertua me sukses",
-    "failed_inserted_remarks": "Verejtja nuk u insertua",
-    "error_empty_reasons": "ju lutem shkruani Arsyen"
+    "text_remarks": "Remarks",
+    "text_add_remarks_header": "Add Remarks",
+    "text_full_name_employee": "Name and Surname",
+    "text_remarks_placeholder": "Write a Remark...",
+    "success_inserted_remarks": "The remark was successfully inserted",
+    "failed_inserted_remarks": "The remark was not inserted",
+    "error_empty_reasons": "Please write the reason."
   },
   "time": {
-    "text_inserted_time": "koha e insertimit"
+    "text_inserted_time": "Insertion time"
   },
   "button": {
-    "text_remarks": "Verejtje"
+    "text_remarks": "Remarks"
   },
   "table_profile": {
-    "text_week_target": "Targeti Javore",
-    "text_done_week_hours": "Oret e Realizuara",
-    "text_Weeks": "Java"
+    "text_week_target": "Weekly Target",
+    "text_done_week_hours": "Hours Realized",
+    "text_Weeks": "Week"
   },
   "new_password": {
-    "text_change_password": "Ndrysho FjaleKalimin",
-    "text_current_password": "Shrkuaj FjaleKalimin Aktual",
-    "text_password": "Shkruaj FjaleKalimin e Ri",
-    "text_repeat_password": "Ri-Shkruaj FjaleKalimin e Ri",
-    "button_submit": "Ndrysho FjaleKalimin",
-    "error_fill_all_inputs": "Ju lutem, Plotesoni te gjitha fushat",
-    "error_fill_current_password": "Ju lutem shkruani Fjalekalimin Aktual",
-    "error_fill_new_password_input": "ju lutem vendosni nje fjalekalim te ri",
-    "error_fill_repeat_password_input": "ju lutem , Ri-Perserit fjalekalimin e ri",
-    "error_match_two_password": "Fjalekalimi i Ri nuk eshte i njejt me kolonen Rishkruaj fjalekalimin",
-    "success_change_password": "Fjalekalimi u ndryshua me sukses",
-    "error_password_was_not_change": "Fjalekalimi nuk u ndryshua"
+    "text_change_password": "Change Password",
+    "text_current_password": "Type Current Password",
+    "text_password": "Type the New Password",
+    "text_repeat_password": "Re-Write New Password",
+    "button_submit": "Change Password",
+    "error_fill_all_inputs": "Please, Fill in all the fields",
+    "error_fill_current_password": "Please enter the Current Password",
+    "error_fill_new_password_input": "please enter a new password",
+    "error_fill_repeat_password_input": "Please re-enter the new password",
+    "error_match_two_password": "The new password is not the same as the Retype password column",
+    "success_change_password": "Password changed successfully",
+    "error_password_was_not_change": "The password was not changed"
   },
   "sign_in":{
     "text":"Sign In",
@@ -289,27 +344,27 @@
     "error_sign_in":"Username or password is incorrect!"
   },
   "email_confirm_link":{
-    "text_header": "Ndrysho FjaleKalimin",
-    "text_email_input": "Shkruani Email-en tuaj",
-    "button_submit": "Dergo Linkun Per Ndryshim Te FjaleKalimit",
-    "error_email_does_not_exist": "Kjo email nuk egziston!",
-    "error_email_unconfirm": "Email-a nuk u konfirmua ju lutem provoni perseri",
-    "error_catch": "Probleme ne Server",
-    "success_link_sender": "Konfirmimi u krye me suksese",
-    "error_fill_email_input": "Ju lutem shkruani Emailen ne vendin e zbrazet"
+    "text_header": "Change Password",
+    "text_email_input": "Enter your Email",
+    "button_submit": "Send the Link to Change Password",
+    "error_email_does_not_exist": "This email does not exist!",
+    "error_email_unconfirm": "The email was not confirmed, please try again",
+    "error_catch": "Server problems",
+    "success_link_sender": "Password changed successfully",
+    "error_fill_email_input": "Please write your email in the blank space"
   },
   "confirm_email":{
-    "text_success":"Konfirmimi u krye me Sukses",
-    "text_failure":"Konfirmimi deshtoi"
+    "text_success":"Confirmation completed successfully",
+    "text_failure":"Confirmation failed"
   },
   "roles":{
-    "button_add_role": "Shto Role",
-    "text_role_input": "Shkruaj nje Role",
-    "module": "Qasja e Roleve ne Module",
+    "button_add_role": "Add Roles",
+    "text_role_input": "Write a Role",
+    "module": "Role Access to Modules",
     "role": "Role",
-    "inserted": "Roli u insertua me sukses",
-    "role_existed": "Ky Profesion Egziston ne Tabel",
-    "not_inserted": "Te dhenat nuk u insertuan",
-    "fill_input": "Ju lutem shkruani nje Role"
+    "inserted": "Role inserted successfully",
+    "role_existed": "This Profession Exists in the Table",
+    "not_inserted": "Data was not inserted",
+    "fill_input": "Please enter a Role"
   } 
 }

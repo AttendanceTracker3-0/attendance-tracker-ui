@@ -127,7 +127,7 @@
     "text_header_employee_birthdate": "Datlindja",
     "text_header_employee_personalnumber": "Numri Personal",
     "text_header_employee_adress": "Adresa",
-    "text_header_employee_email": "Emaili",
+    "text_header_employee_email": "Email",
     "text_header_employee_phonenumber": "Numri Telefonit",
     "text_header_employee_jobposition": "Pozicioni Punes",
     "text_header_employee_status": "Statusi",
@@ -217,13 +217,13 @@
     "text_header_activate_manager": "Aktivizimi i Menaxherit"
   },
   "archive_manager_update_modal": {
-    "text_manager_button_name": "Aktivizo Menagjerin",
-    "text_manager_error": "Ky Menaxher nuk eshte me puntor aktiv.",
     "text_manager_update_header": "Ndrysho te dhenat",
     "text_manager_update_firstname": "Ndrysho Emrin",
     "text_manager_update_lastname": "Ndrysho Mbiemrin",
     "text_manager_update_status": "Eshte Aktiv",
-    "text_manager_update_save_button": "Ruaj"
+    "text_manager_update_save_button": "Ruaj",
+    "text_manager_button_name": "Aktivizo Menagjerin",
+    "text_manager_error": "Ky Menaxher nuk eshte me puntor aktiv"
   },
   "verification_modal": {
     "text_header_verification": "A jeni te sigurte?",
@@ -350,7 +350,7 @@
     "error_email_does_not_exist": "Kjo email nuk egziston!",
     "error_email_unconfirm": "Email-a nuk u konfirmua ju lutem provoni perseri",
     "error_catch": "Probleme ne Server",
-    "success_link_sender": "Konfirmimi u krye me suksese",
+    "success_link_sender": "Fjalekalimi u ndryshua me sukses",
     "error_fill_email_input": "Ju lutem shkruani Emailen ne vendin e zbrazet"
   },
   "confirm_email":{
