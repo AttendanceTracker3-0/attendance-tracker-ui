@@ -73,6 +73,8 @@ import {
    getEmployeesManagments, getPassiveEmployeesManagments, getPassiveCardsManagments, getTrueCardsManagments
   } from 'utils/api/Dashboard';
 import { getChecks, getChecksByEmployeeId, getEmployeeChecksByEmployeeId } from 'utils/api/Check';
+import USBDeviceDetection from './UsbDeviceDetection';
+// import usb from 'usb-detection';
 // import { getTrueCardsManagments } from 'utils/api/Dashboard';
 // import { getRoleModuleActive } from 'utils/api/Modules';
 // import Sidebar from 'components/sidebar/Sidebar';
@@ -412,6 +414,7 @@ const UserReports = () => {
             </Select>
           </Flex>
         </div>
+        <USBDeviceDetection/>
       </Box>
     </>
   );

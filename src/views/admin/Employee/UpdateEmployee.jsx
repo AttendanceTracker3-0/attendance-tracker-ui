@@ -106,6 +106,9 @@ const UpdateEmployeeModal = ({
         updateEmployee(selectedEmployee.id, payload)
             .then(() => {
                 showSuccess(t('update_delete_employee_modal:text_update_employee_success'));
+                if (email != newEmail) {
+                    showSuccess('Linku per konfirmim user-it eshte derguar me sukses ne emailen e re');
+                }
             })
             .catch(() => {
                 showError(t('update_delete_employee_modal:text_update_employee_error'));

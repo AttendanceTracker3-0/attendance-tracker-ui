@@ -217,7 +217,7 @@ export default function Employee() {
             <Remarks
                 openModal={isRemarksModalOpen}
                 closeModal={() => {
-                    setSelectedEmployeeRemark();
+                    setSelectedEmployeeRemark('');
                     onClose();
                     setIsRemarksModalOpen(false);
                 }}

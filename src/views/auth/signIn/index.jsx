@@ -32,8 +32,8 @@ import { authenticate } from 'utils/api/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { confirmEmailLink } from 'utils/api/Account';
-import ResetPasswordByEmail from './resetPasswordModal';
 import SetPassword from './setPassword';
+import ResetPasswordByEmail from './resetPasswordModal';
 
 function SignIn() {
   // Chakra color mode
@@ -61,9 +61,34 @@ function SignIn() {
   // for open Modal
   const [openResetPasswordByEmailModal, setOpenResetPasswordByEmailModal] = React.useState(false);
   const [openSetPasswordModal, setOpenSetPasswordModal] = React.useState(false);
+
   const { t } = useTranslation();
 
   const handleClick = () => setShow(!show);
+
+  const showSuccess = (message) => {
+    toast.success(message, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  const showError = (message) => {
+    toast.error(message, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleLogin = () => {
     setSubmitting(true);
@@ -94,42 +119,11 @@ function SignIn() {
       })
       .catch((err) => {
         console.error(err);
-        toast.error('Username or password is incorrect', {
-          position: 'top-center',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.error(t('sign_in:error_sign_in'));
       })
       .finally(() => {
         setSubmitting(false);
       });
-  };
-  const showSuccess = (message) => {
-    toast.success(message, {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  const showError = (message) => {
-    toast.error(message, {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
   };
   const params = new URLSearchParams(window.location.hash.split('?')[1]);
   const token = params.get('confirmEmailToken');
@@ -195,7 +189,7 @@ function SignIn() {
             fontWeight="400"
             fontSize="md"
           >
-            Enter your username and password to sign in!
+            {t('sign_in:text_header')}
           </Text>
         </Box>
         <Flex
@@ -242,7 +236,7 @@ function SignIn() {
               color={textColor}
               mb="8px"
             >
-              Username
+             {t('sign_in:text_username')}
               <Text color={brandStars}>*</Text>
             </FormLabel>
             <Input
@@ -265,7 +259,7 @@ function SignIn() {
               color={textColor}
               display="flex"
             >
-              Password
+              {t('sign_in:text_password')}
               <Text color={brandStars}>*</Text>
             </FormLabel>
             <InputGroup size="md">
@@ -303,7 +297,7 @@ function SignIn() {
                   color={textColor}
                   fontSize="sm"
                 >
-                  Keep me logged in
+              {t('sign_in:text_keep_login')}
                 </FormLabel>
               </FormControl>
               <Text
@@ -314,7 +308,7 @@ function SignIn() {
                 fontWeight="500"
                 cursor="pointer"
               >
-                Forgot password?
+                {t('sign_in:text_forget_password')}
               </Text>
             </Flex>
             <Button
@@ -327,7 +321,7 @@ function SignIn() {
               disabled={!username || !password || submitting}
               mb="24px"
             >
-              Sign In
+              {t('sign_in:text')}
             </Button>
           </FormControl>
           <Flex

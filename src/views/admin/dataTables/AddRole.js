@@ -47,7 +47,7 @@ const AddRole = ({
     };
     const validation = () => {
         if (!roleName) {
-            showError('Ju lutem Shkruani nje Role');
+            showError(t('roles:fill_input'));
             setDisableButton(false);
             return false;
         }
@@ -62,7 +62,7 @@ const AddRole = ({
         if (!validation()) return;
         addRole(payload)
             .then(() => {
-                showSuccess('Roli u insertua me sukses');
+                showSuccess(t('roles:inserted'));
                 onCloseModal();
                 setRoleName('');
                 setDisableButton(false);
@@ -70,14 +70,14 @@ const AddRole = ({
             })
             .catch((err) => {
                 if (err.response.status === 422) {
-                    showError('Ky Profesion Egziston ne Tabel');
+                    showError(t('roles:role_existed'));
                     setDisableButton(false);
                     setRoleName('');
                 } else if (err.response.status === 421) {
-                    showError('Te dhenat nuk u insertuan');
+                    showError(t('roles:not_inserted'));
                     setDisableButton(false);
                 } else {
-                    showError('Probleme ne Back-End');
+                    showError('error from Back-End');
                     setDisableButton(false);
                 }
             });

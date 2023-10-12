@@ -333,5 +333,38 @@
     "error_match_two_password": "Fjalekalimi i Ri nuk eshte i njejt me kolonen Rishkruaj fjalekalimin",
     "success_change_password": "Fjalekalimi u ndryshua me sukses",
     "error_password_was_not_change": "Fjalekalimi nuk u ndryshua"
-  }
+  },
+  "sign_in":{
+    "text":"Kycu",
+    "text_header": "Shkruaj perdoruesin(Email) dhe fjaleKalimin per tu kyqur",
+    "text_username": "Perdoruesi",
+    "text_password": "Fjalekalimi",
+    "text_keep_login": "Me mbaj te kyqur",
+    "text_forget_password":"Keni harruar Fjalekalimin?",
+    "error_sign_in":"email-a ose fjalekalimi eshte gabim!"
+  },
+  "email_confirm_link":{
+    "text_header": "Ndrysho FjaleKalimin",
+    "text_email_input": "Shkruani Email-en tuaj",
+    "button_submit": "Dergo Linkun Per Ndryshim Te FjaleKalimit",
+    "error_email_does_not_exist": "Kjo email nuk egziston!",
+    "error_email_unconfirm": "Email-a nuk u konfirmua ju lutem provoni perseri",
+    "error_catch": "Probleme ne Server",
+    "success_link_sender": "Konfirmimi u krye me suksese",
+    "error_fill_email_input": "Ju lutem shkruani Emailen ne vendin e zbrazet"
+  },
+  "confirm_email":{
+    "text_success":"Konfirmimi u krye me Sukses",
+    "text_failure":"Konfirmimi deshtoi"
+  },
+ "roles":{
+    "button_add_role": "Shto Role",
+    "text_role_input": "Shkruaj nje Role",
+    "module": "Qasja e Roleve ne Module",
+    "role": "Role",
+    "inserted": "Roli u insertua me sukses",
+    "role_existed": "Ky Profesion Egziston ne Tabel",
+    "not_inserted": "Te dhenat nuk u insertuan",
+    "fill_input": "Ju lutem shkruani nje Role"
+  } 
 }

@@ -112,7 +112,7 @@ export default function Settings() {
           fontSize={{ sm: '14px', lg: '24px' }}
           fontWeight={{ sm: '500', lg: '700' }}
         >
-          Qasja e Roleve ne Module
+         {t('roles:module')}
 
         </Box>
         <Table variant="simple" color="gray.500" mb="24px">
@@ -126,7 +126,7 @@ export default function Settings() {
                 fontSize={{ sm: '10px', lg: '14px' }}
                 color="gray.400"
               >
-                Role
+               {t('roles:role')}
               </Th>
               {columnsData.map((module) => (
                 <Th

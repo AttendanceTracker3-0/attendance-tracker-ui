@@ -4,4 +4,4 @@ import al from './al';
 import en from './en';
 // eslint-disable-next-line import/extensions
 
-export default { al, en};
+export default { al, en };

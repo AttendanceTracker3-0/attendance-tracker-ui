@@ -52,6 +52,7 @@ const ResetPasswordByEmail = ({ isOpen, onClose }) => {
     const validation = () => {
         if (!email) {
             showError(t('email_confirm_link:error_fill_email_input'));
+            setEmailConfirmSender(false);
             return false;
         }
         return true;

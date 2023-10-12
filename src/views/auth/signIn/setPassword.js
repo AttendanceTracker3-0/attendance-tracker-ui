@@ -7,7 +7,6 @@ import {
     ModalOverlay,
     Flex,
     ModalFooter,
-    // ModalCloseButton,
     ModalHeader,
     ModalContent,
     Input,

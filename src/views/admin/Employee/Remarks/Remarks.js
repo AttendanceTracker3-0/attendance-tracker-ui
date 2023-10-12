@@ -119,7 +119,7 @@ const Remarks = ({
     };
     return (
         <>
-            <Modal isOpen={openModal} onClose={() => { closeModal(); setRemarksTable([]); }} size="6xl" colorScheme="brandScheme">
+            <Modal isOpen={openModal} onClose={() => { closeModal(); setRemarksTable([]); setEmployeeId(); }} size="6xl" colorScheme="brandScheme">
                 <ModalOverlay />
                 <ToastContainer />
                 <ModalContent colorScheme="brandScheme">
