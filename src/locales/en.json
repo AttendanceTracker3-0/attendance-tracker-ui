@@ -16,7 +16,8 @@
     "text_register": "Register Users",
     "text_ArchiveEmployee": "Employee Archive",
     "text_ArchiveManagers": "Managers Archive",
-    "text_ArchiveCards": "Cards Archive"
+    "text_ArchiveCards": "Cards Archive",
+    "text_EvidenceRfid": "Evidence By Scanner"
   },
   "job_position": {
     "txt_header_name": "Name",
@@ -341,7 +342,9 @@
     "text_password": "Password",
     "text_keep_login": "Keep me logged in",
     "text_forget_password":"Forgot Password?",
-    "error_sign_in":"Username or password is incorrect!"
+    "error_sign_in":"Username or password is incorrect!",
+    "user_inactive":"The user is inactive",
+    "email_confirm_inactive":"The email is inactive, please check the email for a verification link"
   },
   "email_confirm_link":{
     "text_header": "Change Password",
@@ -366,5 +369,11 @@
     "role_existed": "This Profession Exists in the Table",
     "not_inserted": "Data was not inserted",
     "fill_input": "Please enter a Role"
+  },
+  "scanner":{
+    "name":"Scan the Card",
+    "success": "The evidence was successfully registered",
+    "failed": "Evidence failed",
+    "card_does_not_exist": "This card does not exist or is not active"
   } 
 }

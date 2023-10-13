@@ -118,8 +118,16 @@ function SignIn() {
         }
       })
       .catch((err) => {
-        console.error(err);
+        if (err.response.status === 429) {
+          showError('sign_in:user_inactive');
+          // setDisableButton(false);
+          // setRoleName('');
+      } else if (err.response.status === 430) {
+          showError('sign_in:email_confirm_inactive');
+          // setDisableButton(false);
+      } else {
         toast.error(t('sign_in:error_sign_in'));
+      }
       })
       .finally(() => {
         setSubmitting(false);
@@ -132,7 +140,6 @@ function SignIn() {
 
   /* eslint-disable */
   const handleConfirmation = async () => {
-    console.log(token, email, passwordToken, 'fdghjs');
     if (!email || !token) return;
     try {
       await confirmEmailLink(encodeURIComponent(token), email);

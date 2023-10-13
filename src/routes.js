@@ -30,6 +30,7 @@ import ArchiveCard from 'views/admin/ArchiveCard/ArchiveCard';
 import SignInCentered from 'views/auth/signIn';
 import regiserForm from 'views/admin/Register/register';
 import ConfirmEmail from 'views/auth/confirmEmail/confirmEmail';
+import Scanner from 'views/admin/RfidScanner/Scanner';
 
 const routes = [
   {
@@ -147,6 +148,15 @@ const routes = [
     hideOnSidebar: true,
     icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     component: SignInCentered,
+  },
+  {
+    typeofNumber: 14,
+    name: 'EvidenceRfid',
+    layout: '/admin',
+    path: '/evidence-rfid-scanner-card',
+    hideOnSidebar: false,
+    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
+    component: Scanner,
   },
   {
     name: 'register',

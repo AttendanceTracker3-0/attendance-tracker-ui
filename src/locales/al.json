@@ -16,7 +16,8 @@
     "text_register": "Regjistrimi Perdoruesve",
     "text_ArchiveEmployee": "Arkiva e Puntorve",
     "text_ArchiveManagers": "Arkiva e Menaxhereve",
-    "text_ArchiveCards": "Arkiva e Kartelave"
+    "text_ArchiveCards": "Arkiva e Kartelave",
+    "text_EvidenceRfid": "Evidentimi Nga Scanneri"
   },
   "job_position": {
     "txt_header_name": "Emri",
@@ -341,7 +342,9 @@
     "text_password": "Fjalekalimi",
     "text_keep_login": "Me mbaj te kyqur",
     "text_forget_password":"Keni harruar Fjalekalimin?",
-    "error_sign_in":"email-a ose fjalekalimi eshte gabim!"
+    "error_sign_in":"email-a ose fjalekalimi eshte gabim!",
+    "user_inactive":"Perdoruesi eshte pasive",
+    "email_confirm_inactive":"Email-a eshte pasive, ju lutem kontrolloni ne email per nje link verifikimi"
   },
   "email_confirm_link":{
     "text_header": "Ndrysho FjaleKalimin",
@@ -366,5 +369,11 @@
     "role_existed": "Ky Profesion Egziston ne Tabel",
     "not_inserted": "Te dhenat nuk u insertuan",
     "fill_input": "Ju lutem shkruani nje Role"
-  } 
+  },
+  "scanner":{
+    "name":"Skanoni Kartën",
+    "success": "Evidentimi u regjistrua me Suksese",
+    "failed": "Evidentimi deshtoi",
+    "card_does_not_exist": "Kjo kartele nuk egziston apo nuk eshte aktive"
+  }
 }
